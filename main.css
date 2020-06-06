@@ -1,0 +1,47 @@
+
+h1{
+    color:white;
+}
+
+.outer-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3em;
+    background: url(img/helix.jpg) fixed;
+    border: 0.1em #371d0d solid;
+    background-size: cover;
+    
+  }
+
+.title-image{
+        width: 100%;
+        object-fit: contain;
+}
+
+.inner-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin: auto;
+    padding:40px;
+    border: 0.1em #371d0d solid;
+    background-color: lightblue;
+    margin: 40px;
+    width: 50%;
+
+    
+
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    cursor: pointer;
+  }
