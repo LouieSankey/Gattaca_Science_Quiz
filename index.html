@@ -4,185 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 <body>
 
-   
-
 <section role="region" class="outer-box"> 
 
-    <H1>Gattaca Science Quiz App</H1>
-
+    <H1 class="heading">Gattaca</H1>
+    <H2>Science of the Movie Quiz</H2>
+    <div class="question-and-score"></div>
+    
     <section class="inner-box">
-     
-        <img src="img/title.png" alt="a photo of the move gattaca" class="title-image">
-        <legend>Science quiz</legend>
-
-
-        <button type="submit" class="submitButton button"> Begin</button>
+        <span id="render-area"></span>
     </section>
 
-    <section class="inner-box">
-    <form>
-        <fieldset>
-            <legend>GATTACA is spelled using four letters that stand for the four nitrogen bases of DNA.  Which of these is NOT one of the four bases?</legend>
-            <label>
-                <input type="radio" id="male" name="gender" value="male">
-                <span>Adenine (A)</span>
-            </label>
-            <label>
-                <input type="radio" id="male" name="gender" value="male">
-                <span>Taurine (T)</span>
-            </label>
-            <label>
-                <input type="radio" id="male" name="gender" value="male">
-                <span>Guanine (G)</span>
-            </label>
-            <label>
-                <input type="radio" id="male" name="gender" value="male">
-                <span>Cytosine (C)</span>
-            </label>
-            <button type="submit" class="submitButton button"> Submit</button>
-        </fieldset>
-      </form>
-    </section>
-
-        <section class="inner-box">
-            <form>
-                <fieldset>
-                    <legend>In the move, Gattaca is launches a crewed rocket into space to study a celestial body in our solar system named Titan. What is Titan?</legend>
-                    <label>
-                        <input type="radio" id="male" name="gender" value="male">
-                        <span>Venus’s moon</span>
-                    </label>
-                    <label>
-                        <input type="radio" id="male" name="gender" value="male">
-                        <span>One of Jupiters moons</span>
-                    </label>
-                    <label>
-                        <input type="radio" id="male" name="gender" value="male">
-                        <span>One of Saturns moons</span>
-                    </label>
-                    <label>
-                        <input type="radio" id="male" name="gender" value="male">
-                        <span>An astroid named for its gigantic size</span>
-                    </label>
-                    <button type="submit" class="submitButton button"> Submit</button>
-                </fieldset>
-              </form>
-            </section>
-
-            <section class="inner-box">
-                <form>
-                    <fieldset>
-                        <legend>Which of the characters names comes from the greek word meaning ‘well born’?</legend>
-                        <label>
-                            <input type="radio" id="male" name="gender" value="male">
-                            <span>Vincent</span>
-                        </label>
-                        <label>
-                            <input type="radio" id="male" name="gender" value="male">
-                            <span>Eugene</span>
-                        </label>
-                        <label>
-                            <input type="radio" id="male" name="gender" value="male">
-                            <span>Anton</span>
-                        </label>
-                        <label>
-                            <input type="radio" id="male" name="gender" value="male">
-                            <span>Irene</span>
-                        </label>
-                        <button type="submit" class="submitButton button"> Submit</button>
-                    </fieldset>
-                  </form>
-                </section>
-
-                <section class="inner-box">
-                    <form>
-                        <fieldset>
-                            <legend>Uma Thurman's character in Gatacca is named Irene Cassini. She shares the same last name with Italian astronomer, Giovanni Domenico Cassini who is responsible for what?</legend>
-                            <label>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <span>Discovering the gap between Saturn's main rings, as well as several of the planet's icy moons.</span>
-                                  <!-- In 1997, NASA launched the Cassini space probe, 
-                                    bound for Saturn. It carried the Huygens space probe, 
-                                    which was dropped into Titan in early 2005, 
-                                    and discovered ground under the clouds. -->
-                            </label>
-                            <label>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <span>Being the first to observe Saturn through a telescope in 1610.</span>
-                            </label>
-                            <label>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <span>Designing the Cassini space probe that NASA sent to study Saturn in 1997</span>
-                            </label>
-                            <label>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <span>Naming Saturn.</span>
-                            </label>
-                            <button type="submit" class="submitButton button"> Submit</button>
-                        </fieldset>
-                      </form>
-                    </section>
 
 
-                <section class="inner-box">
-                    <form>
-                        <fieldset>
-                            <legend>Which of the following statements is true</legend>
-                            <label>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <span>NASA scientist voted Gattaca the most accurate sci-fi movie of all time.</span>
-                            </label>
-                            <label>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <span> The business plan of Gattaca Corporation in the movie closely resembles that of the real rocket company SpaceX today.</span>
-                            </label>
-                            <label>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <span>The movie features mostly electric cars, which didn’t exists and were only conjecture at the time of the movie's release in 1997.</span>
-                            </label>
-                            <label>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <span>All of the above.</span>
-                            </label>
-                            <button type="submit" class="submitButton button"> Submit</button>
-                        </fieldset>
-                      </form>
-                    </section>
+    <!-- <section class="question-box"></section>
+    <section class="response-box"></section>
+    <section class="final-box"></section> -->
 
-                    <section class="inner-box">
-                        <form>
-                            <fieldset>
-                                <legend>Public address announcements, in the Gattaca Corporation headquarters building, are in Esperanto. What is Esparanto?</legend>
-                                <label>
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <span>A dialect of ancient Greece. </span>
-                                </label>
-                                <label>
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <span>A deceptive form of English double speak that George Orwell invented in his book 1984.</span>
-                                </label>
-                                <label>
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <span>An easy to learn artificial language invented in the nineteenth century to address cross cultural communication difficulties.</span>
-                                </label>
-                                <label>
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <span>A futuristic type of espresso drink</span>
-                                </label>
-                                <button type="submit" class="submitButton button"> Submit</button>
-                            </fieldset>
-                          </form>
-                        </section>
-                  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-</section>
-
-
-
+    <script src="index.js"></script>
+    <script src="store.js"></script>
 </body>
 </html>

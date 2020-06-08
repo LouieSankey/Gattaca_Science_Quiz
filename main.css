@@ -1,6 +1,10 @@
 
-h1{
+h1, h2{
     color:white;
+}
+
+.question-and-score{
+  color:white;
 }
 
 .outer-box {
@@ -11,12 +15,13 @@ h1{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3em;
-    background: url(img/helix.jpg) fixed;
+    background: url(img/helix.jpeg) 50% fixed;
     border: 0.1em #371d0d solid;
     background-size: cover;
+    width: 80%
     
   }
-
+  
 .title-image{
         width: 100%;
         object-fit: contain;
@@ -31,12 +36,21 @@ h1{
     margin: auto;
     padding:40px;
     border: 0.1em #371d0d solid;
-    background-color: lightblue;
+    background:  white 100% no-repeat;
+    background-size: cover;
     margin: 40px;
-    width: 50%;
+    width: 80%;
+    height: 400px;
 
-    
+  }
 
+  .heading{
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+
+  fieldset{
+    border: none;
   }
   
   label {
