@@ -1,5 +1,5 @@
 
-
+//Question # is derived from slide #, so current question will be slideNumber - 1 after the initial slide is shown
 let slideNumber = 0;
 let score = 0;
 
@@ -16,12 +16,11 @@ function showNextSlide() {
                 updateSlideNumber()
                 break;
 
-              //handles restarting the quiz after the results slide is displayed
+              //handles restarting the quiz after the final results slide is displayed
                 case slideNumber > STORE.length:
                   startQuiz()
                 break;
 
-                //handles the default
               default:
                 showAnswerOrRenderNext()
                 break;
@@ -32,18 +31,19 @@ function showNextSlide() {
 
 function showAnswerOrRenderNext() {
 
-//this will show the answer 
+//if the answer isn't shown from the previous question, this will show the answer
   if (!$('#answer').length) {
     let selectedInputHtml = $("input[name=options]:checked");
     if(selectedInputHtml.val()){
       showCorrectAnswer(selectedInputHtml); 
     }else{
-      //or alert the user to make a selection
+      //or alert the user to make a selection if none has been made
+      /*  TODO: style alert */
       alert("Choose an option");
       return;
     }
   }
-  //if the answer is already shown from previous question, this will render the next question
+  //if the previous answer is shown, this will render the next question
   else{
     renderNextSlide();
     updateSlideNumber();
@@ -52,36 +52,55 @@ function showAnswerOrRenderNext() {
 }
 
 function showCorrectAnswer(selectedInputHtml){
+
   //show the answer if it is correct 
-  //(slideNumber - 1 because slides is incremented from initil slide) 
   let answer = STORE[slideNumber - 1].answer; 
+  let explaination = STORE[slideNumber - 1].explaination; 
 
   if(selectedInputHtml.val() === answer){
-    let correctAnswerId = '#' + selectedInputHtml.attr('id');    
-    $(correctAnswerId).next().after('<p id="answer">This is the correct answer</p>')
+    let correctAnswerId = '#' + selectedInputHtml.attr('id'); 
+    
+    correctAnswerHtml(correctAnswerId, explaination)
     updateScore();
    }
    //show the answer if it is incorrect
    else{
-    let correctAnswerId = '#' + selectedInputHtml.attr('id');    
-    $(correctAnswerId).next().after(
-      `<p id="answer">That's inccorect. The correct answer is: ${answer}</p>`)
+    let correctAnswerId = '#' + selectedInputHtml.attr('id');  
+    incorrectAnswerHtml(correctAnswerId, explaination)
    }
-
-   $('.submit-button').text('next');   
+   $('.submit-button').text('Next');   
 }
 
 function renderNextSlide(){
  
-  //renders the default 
+  //renders all the slides the are before the results slide
     if(slideNumber < STORE.length){
       let question = STORE[slideNumber]
       displayQuestionHtml(question);
-      $('.submit-button').text('submit')
+      $('.submit-button').text('Validate')
     }
-    //handles rendering the final results slide
+    //renders the results slide
     else{
-      displayResultsHtml();
+      
+if(score >= STORE.length - 2){
+  const won = {
+    message: "Congratulations, you're going to Titan!",
+    imgAlt: "A picture of the main character Vincent as he prepares to board a rocketship",
+    img: "results-won.jpeg"
+  }
+  displayResultsHtml(won);
+}else{
+  const lost = {
+    message: "The mission director caught you, better luck next time!",
+    imgAlt: "A picture of the main character Vincent looking concerned",
+    img: "results-lost.jpeg"
+  }
+  displayResultsHtml(lost);
+}
+
+
+
+      
     }
   }
 

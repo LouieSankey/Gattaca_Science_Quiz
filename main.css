@@ -1,13 +1,62 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 1%;
+  }
+  
+  body {
+    font-family: 'Syncopate';
+    text-transform: uppercase;
+    color: white;
+    background: url(img/GATC.jpg) 100% fixed;
+    
+  }
 
-h1, h2{
-    color:white;
+  .header {
+    text-align: center;
+  }
+
+  fieldset{
+    border: none;
+  }
+  
+
+form{
+    padding: 1em;;
+    font-size: 1.2em;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Odibee Sans', cursive;
+    font-family: 'Patrick Hand', cursive;
+    text-transform: none;
+    background-color: black;
+
 }
 
-.question-and-score{
-  color:white;
+label {
+    display: inline-block;
+    width:100%;
+    text-align: left;
 }
 
-.outer-box {
+  #sub-heading{
+      font-size: 0.6em;
+      padding:1em;
+  }
+  
+  .topTitle {
+    max-width: 30em;
+    margin: 1em;
+  }
+  
+  .header li {
+    display: inline-block;
+    margin: 1em;
+    list-style: none;
+    font-size: 1.3em;
+  }
+  
+  .outer-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,42 +64,37 @@ h1, h2{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3em;
-    background: url(img/helix.jpeg) 50% fixed;
-    border: 0.1em #371d0d solid;
-    background-size: cover;
-    width: 80%
-    
+    background: url(img/saturn.jpg) 100% fixed;
+    border: 0.1em white solid;
+
   }
   
-.title-image{
-        width: 100%;
-        object-fit: contain;
-}
 
-.inner-box {
+  .inner-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     text-align: center;
     margin: auto;
-    padding:40px;
-    border: 0.1em #371d0d solid;
-    background:  white 100% no-repeat;
-    background-size: cover;
-    margin: 40px;
-    width: 80%;
-    height: 400px;
+    padding: 1em;
+    border: 0.1em rgb(56, 56, 56) solid;
+    background-color: darkgray;
+    height: 90%;
+  }
+
+  #answer-box-correct{
+    border: 0.1em blue solid;
+    margin: 1em;
+    padding: 0.2em;
 
   }
 
-  .heading{
-    font-size: 30px;
-    margin-bottom: 0;
-  }
+  #answer-box-incorrect{
+    border: 0.1em red solid;
+    margin: 1em;
+    padding: 0.2em;
 
-  fieldset{
-    border: none;
   }
   
   label {
@@ -58,4 +102,153 @@ h1, h2{
     margin-bottom: 0.5em;
     padding: 0.5em;
     cursor: pointer;
+  }
+  
+  .images {
+    margin-bottom: 0.5em;
+    width: 90%;
+    max-width: 240px;
+  }
+
+  .validate-image{
+      width: 8em;
+      height: auto;
+  }
+
+  #results-screen{
+    padding:1em;
+    background-color: black;
+  }
+
+  .blue-quiz-word{
+    background-color: rgb(62, 104, 158);
+    color:black;
+    padding: 0.05em;
+    
+  }
+  
+  
+  legend {
+    margin-bottom: 0.5em;
+  }
+  
+  .answerOption {
+    margin-top: 0.5em;
+  }
+  
+  button {
+    margin-left: auto;
+    margin-right: auto;
+    height: 2em;
+    font-size: 1em;
+    width: 8em;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(24, 24, 24);
+    color: #ffffff;
+  } 
+  
+  
+  
+  .button:hover,
+  .button:active {
+    background-color: grey;
+    border: 0.1em #371d0d solid;
+  }
+  
+  .final {
+    display: block;
+  }
+
+  .intro-image{
+    width: 100%;
+    object-fit: contain;
+}
+  
+  
+  @media only screen and (min-width: 320px) {
+    .topTitle {
+      width: 45%;
+    }
+  
+    .inner-box {
+      width: 90%;
+      height: 90%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding-top: 0.8em;
+      padding-bottom: 0.8em;
+      height: 90%;
+    }
+
+    .images {
+      width: 85%;
+    }
+  
+    .results-image{
+      position: absolute center;
+      max-width: 100%;
+      max-height: 100%;
+      overflow: hidden;
+      
+    }
+  
+    legend {
+      font-size: 1em;
+    }
+  
+    .header li {
+      font-size: 1em;
+    }
+  
+  }
+  
+  @media only screen and (min-width: 550px) {
+    .outer-box {
+      width: 29.5em;
+      height: 31.5em;
+      padding-top: 2.6em;
+      padding-bottom: 2.6em;
+    }
+  
+    .inner-box {
+      width: 85%;
+      height: 98%;
+    }
+  
+
+    legend {
+      font-size: 1em;
+    }
+  
+  }
+  
+  @media only screen and (min-width: 800px) {  
+    .header li {
+      margin: 1em;
+      font-size: 1.3em;
+    }
+  
+    .outer-box {
+      width: 35em;
+      height: 98%;
+    }
+  
+    .inner-box {
+      width: 85%;
+      height: 95%;
+    }
+  
+ 
+    legend {
+      font-size: 1.3em;
+    }
+   
+    .button {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      height: 2em;
+      width: 8em;
+      font-size: 1em;
+    } 
   }

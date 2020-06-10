@@ -1,9 +1,27 @@
 
+function correctAnswerHtml(correctAnswerId, explaination){
+  $(correctAnswerId).next().after(`<div id="answer-box-correct">
+  <p id="answer">${explaination}</p>
+  <img class="validate-image" src="img/valid.jpeg" alt="A Gattaca badge showing a 'valid' employee"/>
+  </div>
+  
+  `)
+    
+}
+
+function incorrectAnswerHtml(correctAnswerId, explaination){
+  $(correctAnswerId).next().after(`<div id="answer-box-incorrect">
+  <p id="answer">${explaination}</p>
+  <img class="validate-image" src="img/invalid.png" alt="A Gattaca badge showing an 'in-valid' employee"/>
+  </div>
+  `)
+ }
+
+
 function displayInitialHtml(){
-    const initialHtml = $(`<img src="img/title.png" alt="a photo of the move gattaca" class="title-image">
-    <legend>Science of the Movie Quiz</legend>
+    const initialHtml = $(`<img src="img/launch.png" alt="A photo of the three main characters from Gattaca, with a DNA helix between them." class="intro-image">
     <form>
-    <button class="submit-button" type="submit"> Begin</button>
+    <button class="submit-button" type="submit">Launch!</button>
     </form>`);
     $('.inner-box').find('span').html(initialHtml)
   }
@@ -19,15 +37,23 @@ function displayInitialHtml(){
     }
   }
   
-  function displayResultsHtml(){
+  function displayResultsHtml(result){
     const resultsHtml = $(`
-    <Sectuib>Results</section>
-    <p>You scored: ${score}/${STORE.length}</p>
-    <form>
-    <button class="submit-button" type="submit">Restart</button>
-    </form>`);
+    <section id="results-screen">
+      <h1>Results</h1>
+      <p>You scored: ${score}/${STORE.length}</p>
+      <img class="results-image" src="img/${result.img}" alt="${result.imgAlt}"/>
+      <p>${result.message}</p>
+      <form>
+        <button class="submit-button" type="submit">Restart</button>
+      </form>
+    </section>`);
+
     $('.inner-box').find('span').html(resultsHtml);
   }
+
+
+
   
   function displayQuestionHtml(question){
     let questionHtml = $(`
