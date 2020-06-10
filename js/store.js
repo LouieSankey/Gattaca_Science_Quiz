@@ -48,7 +48,7 @@ const STORE = [
     explaination: "The correct answer is a. 'Eu' from the root word good, like Euthanasia (good death), & 'gene' from root word birth like genus/species."
   },
   {
-    question: "GATTACA is spelled using four letters that stand for the four elements of DNA.  Which of these is not one of the four bases?",
+    question: "GATTACA is spelled using four letters that stand for the four elements of DNA.  Which of these is not one of the four elements?",
     options: [
       "a. Adenine (A)", 
       "b. Cytosine (C)", 
