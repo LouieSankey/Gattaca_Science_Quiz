@@ -10,8 +10,9 @@ function correctAnswerHtml(correctAnswerId, explaination){
 
 function incorrectAnswerHtml(correctAnswerId, explaination){
   $(correctAnswerId).next().after(`<div id="answer-box-incorrect">
-  <p id="answer">${explaination}</p>
   <img class="validate-image" src="img/invalid.png" alt="A Gattaca badge showing an 'in-valid' employee"/>
+  <p id="answer">${explaination}</p>
+  
   </div>
   `)
  }
