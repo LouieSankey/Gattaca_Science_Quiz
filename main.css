@@ -41,7 +41,13 @@ label {
 
   #sub-heading{
       font-size: 0.6em;
-      padding:1em;
+     
+      background-color: black;
+  }
+
+  #heading{
+    background-color: black;
+   
   }
   
   .topTitle {
@@ -67,6 +73,12 @@ label {
     background: url(img/saturn.jpg) 100% fixed;
     border: 0.1em white solid;
 
+  }
+
+  #question-number, #score  {
+    background-color:rgba(0, 0, 0, 0.25);
+    padding: 0.1em;
+    border-radius: 5px;
   }
   
 
@@ -146,14 +158,18 @@ label {
     text-transform: uppercase;
     background-color: rgb(24, 24, 24);
     color: #ffffff;
+    border-radius: 15px;
+
+
   } 
   
   
   
-  .button:hover,
-  .button:active {
+  button:hover,
+  button:active {
     background-color: grey;
     border: 0.1em #371d0d solid;
+
   }
   
   .final {

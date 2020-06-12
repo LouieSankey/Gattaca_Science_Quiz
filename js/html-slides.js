@@ -1,11 +1,10 @@
 
 function correctAnswerHtml(correctAnswerId, explaination){
   $(correctAnswerId).next().after(`<div id="answer-box-correct">
+   <img class="validate-image" src="img/valid.jpeg" alt="A Gattaca badge showing a 'valid' employee"/>
   <p id="answer">${explaination}</p>
-  <img class="validate-image" src="img/valid.jpeg" alt="A Gattaca badge showing a 'valid' employee"/>
   </div>
-  
-  `)
+`)
     
 }
 
@@ -21,7 +20,7 @@ function incorrectAnswerHtml(correctAnswerId, explaination){
 function displayInitialHtml(){
     const initialHtml = $(`<img src="img/launch.png" alt="A photo of the three main characters from Gattaca, with a DNA helix between them." class="intro-image">
     <form>
-    <button class="submit-button" type="submit">Launch!</button>
+    <button id="launch-button" class="main-button" type="submit">Launch!</button>
     </form>`);
     $('.inner-box').find('span').html(initialHtml)
   }
@@ -30,8 +29,8 @@ function displayInitialHtml(){
   
     if(slideNumber <= STORE.length){
       const html = $(`<ul>
-      <li id="js-answered">Question Number: ${slideNumber}/${STORE.length}</li>
-      <li id="js-score">Score: ${score}/${STORE.length}</li>
+      <li id="question-number">Question Number: ${slideNumber}/${STORE.length}</li>
+      <li id="score">Score: ${score}/${STORE.length}</li>
       </ul>`);
       $(".question-and-score").html(html)
     }
@@ -45,7 +44,7 @@ function displayInitialHtml(){
       <img class="results-image" src="img/${result.img}" alt="${result.imgAlt}"/>
       <p>${result.message}</p>
       <form>
-        <button class="submit-button" type="submit">Restart</button>
+        <button id="restart-button" class="main-button"  type="submit">Restart</button>
       </form>
     </section>`);
 
@@ -53,13 +52,12 @@ function displayInitialHtml(){
   }
 
 
-
-  
   function displayQuestionHtml(question){
     let questionHtml = $(`
     <form>
         <fieldset>
             <legend>${question.question}</legend>
+            <div id="select-input"></div>
             <label>
                 <input type="radio" id="js-id${0}" name="options" value="${question.options[0]}">
                 <span>${question.options[0]}</span>
@@ -76,7 +74,7 @@ function displayInitialHtml(){
                 <input type="radio" id="js-id${3}" name="options" value="${question.options[3]}">
                 <span>${question.options[3]}</span>
             </label>
-            <button type="submit" class="submit-button button"> Submit</button>
+            <button type="submit" id="answer-button" class="main-button">Answer</button>
         </fieldset>
       </form>`)
     

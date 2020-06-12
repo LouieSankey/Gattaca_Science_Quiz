@@ -3,63 +3,53 @@
 let slideNumber = 0;
 let score = 0;
 
-//this handles every button click in the app
-function showNextSlide() {
-    $('.inner-box').on('click', '.submit-button', function(event){
-       event.preventDefault();
+function launch() {
+  $('.inner-box').on('click', '#launch-button', function(event){
+    event.preventDefault();
+    renderNextSlide()
+    updateSlideNumber()
+  })
+}
 
-            switch (true) {
+function next() {
+  $('.inner-box').on('click', '#next-button', function(event){
+    event.preventDefault()
+    renderNextSlide()
+    updateSlideNumber()
+});
+}
 
-              //handles the intial slide
-              case slideNumber === 0:
-                renderNextSlide()
-                updateSlideNumber()
-                break;
+function showAnswer() {
+  $('.inner-box').on('click', '#answer-button', function(event){
+    event.preventDefault();
 
-              //handles restarting the quiz after the final results slide is displayed
-                case slideNumber > STORE.length:
-                  startQuiz()
-                break;
-
-              default:
-                showAnswerOrRenderNext()
-                break;
-            }
-     }
-    );
-  }
-
-function showAnswerOrRenderNext() {
-
-//if the answer isn't shown from the previous question, this will show the answer
-  if (!$('#answer').length) {
     let selectedInputHtml = $("input[name=options]:checked");
     if(selectedInputHtml.val()){
       showCorrectAnswer(selectedInputHtml); 
     }else{
-      //or alert the user to make a selection if none has been made
-      /*  TODO: style alert */
+      
       alert("Choose an option");
       return;
     }
-  }
-  //if the previous answer is shown, this will render the next question
-  else{
-    renderNextSlide();
-    updateSlideNumber();
-    
-  }
+
+});
+}
+
+function restart() {
+  $('.inner-box').on('click', '#restart-button', function(event){
+    event.preventDefault();
+    startQuiz();
+});
 }
 
 function showCorrectAnswer(selectedInputHtml){
 
-  //show the answer if it is correct 
   let answer = STORE[slideNumber - 1].answer; 
   let explaination = STORE[slideNumber - 1].explaination; 
 
+  //show the answer if it is correct 
   if(selectedInputHtml.val() === answer){
     let correctAnswerId = '#' + selectedInputHtml.attr('id'); 
-    
     correctAnswerHtml(correctAnswerId, explaination)
     updateScore();
    }
@@ -68,41 +58,41 @@ function showCorrectAnswer(selectedInputHtml){
     let correctAnswerId = '#' + selectedInputHtml.attr('id');  
     incorrectAnswerHtml(correctAnswerId, explaination)
    }
-   $('.submit-button').text('Next');   
+
+   $('#answer-button').text('Next').attr("id", "next-button");
+
 }
 
 function renderNextSlide(){
- 
-  //renders all the slides the are before the results slide
-    if(slideNumber < STORE.length){
+
+  if(slideNumber < STORE.length){
       let question = STORE[slideNumber]
       displayQuestionHtml(question);
-      $('.submit-button').text('Validate')
-    }
-    //renders the results slide
-    else{
-      
-if(score >= STORE.length - 2){
-  const won = {
-    message: "Congratulations, you're going to Titan!",
-    imgAlt: "A picture of the main character Vincent as he prepares to board a rocketship",
-    img: "results-won.jpeg"
+  }else{  
+  
+    showWinOrLoose();
   }
-  displayResultsHtml(won);
-}else{
-  const lost = {
-    message: "The mission director caught you, better luck next time!",
-    imgAlt: "A picture of the main character Vincent looking concerned",
-    img: "results-lost.jpeg"
-  }
-  displayResultsHtml(lost);
+
 }
 
-
-
-      
-    }
+function showWinOrLoose() {
+  if (score >= STORE.length - 2) {
+    const won = {
+      message: "Congratulations, you're going to Titan!",
+      imgAlt: "A picture of the main character Vincent as he prepares to board a rocketship",
+      img: "results-won.jpeg"
+    };
+    displayResultsHtml(won);
   }
+  else {
+    const lost = {
+      message: "The mission director caught you, better luck next time!",
+      imgAlt: "A picture of the main character Vincent looking concerned",
+      img: "results-lost.jpeg"
+    };
+    displayResultsHtml(lost);
+  }
+}
 
   function startQuiz(){
     slideNumber = 0;
@@ -122,10 +112,14 @@ if(score >= STORE.length - 2){
     displayScoreHtml()
   }
 
+  
   function initializeApp(){
     startQuiz();
-    showNextSlide();
-    displayScoreHtml();
+    launch();
+    showAnswer()
+    next()
+    restart()
+  
   }
 
   initializeApp();
