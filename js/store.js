@@ -1,3 +1,4 @@
+//Question # is derived from slide #, so current question will be slideNumber - 1 after the initial slide is shown
 
 const STORE = {
    slideNumber : 0,
