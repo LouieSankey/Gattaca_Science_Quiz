@@ -1,5 +1,8 @@
 
-const STORE = [
+const STORE = {
+   slideNumber : 0,
+   score : 0,
+  questions : [
   {
     question: "In the movie Gattaca, a crewed rocket is sent into space to study the celestial body Titan. What is Titan?",
     options: [
@@ -71,4 +74,5 @@ const STORE = [
   }
 
 ]
+}
 

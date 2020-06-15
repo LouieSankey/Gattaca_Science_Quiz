@@ -1,7 +1,6 @@
 
 //Question # is derived from slide #, so current question will be slideNumber - 1 after the initial slide is shown
-let slideNumber = 0;
-let score = 0;
+
 
 function launch() {
   $('.inner-box').on('click', '#launch-button', function(event){
@@ -44,8 +43,8 @@ function restart() {
 
 function showCorrectAnswer(selectedInputHtml){
 
-  let answer = STORE[slideNumber - 1].answer; 
-  let explaination = STORE[slideNumber - 1].explaination; 
+  let answer = STORE.questions[STORE.slideNumber - 1].answer; 
+  let explaination = STORE.questions[STORE.slideNumber - 1].explaination; 
 
   //show the answer if it is correct 
   if(selectedInputHtml.val() === answer){
@@ -65,8 +64,8 @@ function showCorrectAnswer(selectedInputHtml){
 
 function renderNextSlide(){
 
-  if(slideNumber < STORE.length){
-      let question = STORE[slideNumber]
+  if(STORE.slideNumber < STORE.questions.length){
+      let question = STORE.questions[STORE.slideNumber]
       displayQuestionHtml(question);
   }else{  
   
@@ -76,7 +75,7 @@ function renderNextSlide(){
 }
 
 function showWinOrLoose() {
-  if (score >= STORE.length - 2) {
+  if (STORE.score >= STORE.questions.length - 2) {
     const won = {
       message: "Congratulations, you're going to Titan!",
       imgAlt: "A picture of the main character Vincent as he prepares to board a rocketship",
@@ -95,20 +94,19 @@ function showWinOrLoose() {
 }
 
   function startQuiz(){
-    slideNumber = 0;
-    score = 0;
+
     displayScoreHtml()
     displayInitialHtml()
   }
 
   function updateSlideNumber() {
-    slideNumber++;
+    STORE.slideNumber =  STORE.slideNumber + 1;
     displayScoreHtml()
 
   }
 
   function updateScore(){
-    score++;
+    STORE.score = STORE.score + 1;
     displayScoreHtml()
   }
 
@@ -122,6 +120,6 @@ function showWinOrLoose() {
   
   }
 
-  initializeApp();
+  $(initializeApp);
 
   

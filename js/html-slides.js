@@ -19,7 +19,7 @@ function incorrectAnswerHtml(correctAnswerId, explaination){
 
 
 function displayInitialHtml(){
-    const initialHtml = $(`<img src="img/launch.png" alt="A photo of the three main characters from Gattaca, with a DNA helix between them." class="intro-image">
+    const initialHtml = $(`<img src="img/launch.png" alt="A launching rocketship with a helix as its exhaust." class="intro-image">
     <form>
     <button id="launch-button" class="main-button" type="submit">Launch!</button>
     </form>`);
@@ -28,10 +28,10 @@ function displayInitialHtml(){
   
   function displayScoreHtml(){
   
-    if(slideNumber <= STORE.length){
+    if(STORE.slideNumber <= STORE.questions.length){
       const html = $(`<ul>
-      <li id="question-number">Question Number: ${slideNumber}/${STORE.length}</li>
-      <li id="score">Score: ${score}/${STORE.length}</li>
+      <li id="question-number">Question Number: ${STORE.slideNumber}/${STORE.questions.length}</li>
+      <li id="score">Score: ${STORE.score}/${STORE.questions.length}</li>
       </ul>`);
       $(".question-and-score").html(html)
     }
@@ -41,7 +41,7 @@ function displayInitialHtml(){
     const resultsHtml = $(`
     <section id="results-screen">
       <h1>Results</h1>
-      <p>You scored: ${score}/${STORE.length}</p>
+      <p>You scored: ${STORE.score}/${STORE.questions.length}</p>
       <img class="results-image" src="img/${result.img}" alt="${result.imgAlt}"/>
       <p>${result.message}</p>
       <form>
