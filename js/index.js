@@ -35,7 +35,9 @@ function showAnswer() {
 
 function restart() {
   $('.inner-box').on('click', '#restart-button', function(event){
+   
     event.preventDefault();
+    $('#restart-button').attr("id", "launch-button");
     startQuiz();
 });
 }
@@ -93,6 +95,9 @@ function showWinOrLoose() {
 }
 
   function startQuiz(){
+
+    STORE.slideNumber = 0;
+    STORE.score = 0;
 
     displayScoreHtml()
     displayInitialHtml()
